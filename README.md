@@ -1,10 +1,7 @@
-Timepicker for Twitter Bootstrap 2.x
+Simpe Timepicker based on jQuery
 =======
 
-Timepicker for Twitter Bootstrap 2.x [![Build Status](https://secure.travis-ci.org/jdewit/bootstrap-timepicker.png)](http://travis-ci.org/jdewit/bootstrap-timepicker)
-------------------------------------
-
-A simple timepicker component for Twitter Bootstrap.
+A simple timepicker component.
 
 Status
 ======
