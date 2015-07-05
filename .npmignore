@@ -1,4 +1,4 @@
 .idea
 node_modules
 gruntfile.js
-dist
+spec

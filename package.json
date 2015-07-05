@@ -12,6 +12,7 @@
     "url": "https://github.com/leider/simple-timepicker"
   },
   "scripts": {
+    "prepublish": "grunt",
     "test": "grunt"
   },
   "bugs": {
