@@ -8,7 +8,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-(function ($, window, document, undefined) {
+(function ($, window, document) {
   'use strict';
 
   // TIMEPICKER PUBLIC CLASS DEFINITION
@@ -20,7 +20,6 @@
     this.disableMousewheel = options.disableMousewheel;
     this.isOpen = options.isOpen;
     this.minuteStep = options.minuteStep;
-    this.modalBackdrop = options.modalBackdrop;
     this.orientation = options.orientation;
     this.secondStep = options.secondStep;
     this.showInputs = options.showInputs;
@@ -296,20 +295,6 @@
         '</table>';
 
       switch (this.template) {
-      case 'modal':
-        template = '<div class="bootstrap-timepicker-widget modal hide fade in" data-backdrop="' + (this.modalBackdrop ? 'true' : 'false') + '">' +
-          '<div class="modal-header">' +
-          '<a href="#" class="close" data-dismiss="modal">×</a>' +
-          '<h3>Pick a Time</h3>' +
-          '</div>' +
-          '<div class="modal-content">' +
-          templateContent +
-          '</div>' +
-          '<div class="modal-footer">' +
-          '<a href="#" class="btn btn-primary" data-dismiss="modal">OK</a>' +
-          '</div>' +
-          '</div>';
-        break;
       case 'dropdown':
         template = '<div class="bootstrap-timepicker-widget dropdown-menu">' + templateContent + '</div>';
         break;
@@ -342,11 +327,7 @@
         }
       });
 
-      if (this.template === 'modal' && this.$widget.modal) {
-        this.$widget.modal('hide');
-      } else {
-        this.$widget.removeClass('open');
-      }
+      this.$widget.removeClass('open');
 
       $(document).off('mousedown.timepicker, touchend.timepicker');
 
@@ -891,12 +872,8 @@
         }
       }
 
-      if (this.template === 'modal' && this.$widget.modal) {
-        this.$widget.modal('show').on('hidden', $.proxy(this.hideWidget, this));
-      } else {
-        if (this.isOpen === false) {
-          this.$widget.addClass('open');
-        }
+      if (this.isOpen === false) {
+        this.$widget.addClass('open');
       }
 
       this.isOpen = true;

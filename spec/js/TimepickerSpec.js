@@ -20,7 +20,6 @@ describe('Timepicker feature', function() {
 
     $input2 = $('#timepicker2');
     $timepicker2 = $input2.timepicker({
-      template: 'modal',
       showSeconds: true,
       minuteStep: 30,
       secondStep: 30,
@@ -69,19 +68,16 @@ describe('Timepicker feature', function() {
     expect(tp1.showInputs).toBe(true);
     expect(tp1.showMeridian).toBe(true);
     expect(tp1.template).toBe('dropdown');
-    expect(tp1.modalBackdrop).toBe(false);
-    expect(tp1.modalBackdrop).toBe(false);
     expect(tp1.isOpen).toBe(false);
     expect(tp1.showWidgetOnAddonClick).toBe(true);
   });
 
   it('should allow user to configure defaults', function() {
-    expect(tp2.template).toBe('modal');
     expect(tp2.minuteStep).toBe(30);
   });
 
   it('should be configurable with data attributes', function() {
-    $('body').append('<div id="hi" class="bootstrap-timepicker"><input id="customTimepicker" data-template="modal" data-minute-step="30" data-modal-backdrop="true" data-show-meridian="true" type="text"/></div');
+    $('body').append('<div id="hi" class="bootstrap-timepicker"><input id="customTimepicker" data-template="modal" data-minute-step="30" data-show-meridian="true" type="text"/></div');
 
     var $customInput = $('body').find('#customTimepicker'),
         tpCustom = $customInput.timepicker().data('timepicker');
@@ -89,7 +85,6 @@ describe('Timepicker feature', function() {
     expect($('body').find('#customTimepicker').length).toBe(1);
     expect(tpCustom.template).toBe('modal');
     expect(tpCustom.minuteStep).toBe(30, 'data-minute-step not working');
-    expect(tpCustom.modalBackdrop).toBe(true, 'data-modal-backdrop not working');
     expect(tpCustom.showMeridian).toBe(true, 'data-show-meridian not working');
 
     tpCustom.remove();

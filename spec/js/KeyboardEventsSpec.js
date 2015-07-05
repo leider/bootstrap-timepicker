@@ -209,29 +209,7 @@ describe('Keyboard events feature', function() {
     expect($input1.val()).toBe('');
   });
 
-  it('should allow time to be changed via widget inputs in a modal', function() {
-    tp2.setTime('9:30 AM');
-    tp2.update();
-    $input2.parents('div').find('.add-on').click();
-
-    var $hourInput = $('body').find('input.bootstrap-timepicker-hour'),
-        $minuteInput = $('body').find('input.bootstrap-timepicker-minute'),
-        $secondInput = $('body').find('input.bootstrap-timepicker-second'),
-        $meridianInput = $('body').find('input.bootstrap-timepicker-meridian');
-
-    $hourInput.autotype('{{back}}{{back}}2{{tab}}');
-    expect(tp2.getTime()).toBe('2:30:00 AM');
-
-    $minuteInput.autotype('{{back}}{{back}}0{{tab}}');
-    expect(tp2.getTime()).toBe('2:00:00 AM');
-
-    $secondInput.autotype('{{back}}{{back}}30{{tab}}');
-    expect(tp2.getTime()).toBe('2:00:30 AM');
-
-    $meridianInput.autotype('{{back}}{{back}}p{{tab}}');
-    expect(tp2.getTime()).toBe('2:00:30 PM');
-  });
-
+ 
   it('should be 12:00 AM if 00:00 AM is entered', function() {
     $input1.autotype('{{back}}{{back}}{{back}}{{back}}{{back}}{{back}}{{back}}{{back}}0:0 AM{{tab}}');
 

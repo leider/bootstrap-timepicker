@@ -30,7 +30,6 @@ describe('Mouse events feature', function() {
 
     $input2 = $('#timepicker2');
     $timepicker2 = $input2.timepicker({
-      template: 'modal',
       showSeconds: true,
       minuteStep: 30,
       secondStep: 30,
@@ -51,7 +50,6 @@ describe('Mouse events feature', function() {
 			minuteStep: 5,
 			showInputs: false,
 			showMeridian: true,
-			template: 'modal',
 			disableFocus: true
     });
     tp4 = $timepicker4.data('timepicker');
