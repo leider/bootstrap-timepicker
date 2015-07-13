@@ -3,18 +3,14 @@
 
   // TIMEPICKER PUBLIC CLASS DEFINITION
   function Timepicker(element, options) {
-    this.widget = '';
     this.$element = $(element);
     this.defaultTime = options.defaultTime;
     this.disableFocus = options.disableFocus;
     this.disableMousewheel = options.disableMousewheel;
-    this.isOpen = options.isOpen;
     this.minuteStep = options.minuteStep;
-    this.orientation = options.orientation;
     this.secondStep = options.secondStep;
     this.showMeridian = options.showMeridian;
     this.showSeconds = options.showSeconds;
-    this.template = options.template;
     this.showWidgetOnAddonClick = options.showWidgetOnAddonClick;
 
     this.$element.on({
@@ -648,13 +644,10 @@
     defaultTime: 'current',
     disableFocus: false,
     disableMousewheel: false,
-    isOpen: false,
     minuteStep: 15,
-    orientation: {x: 'auto', y: 'auto'},
     secondStep: 15,
     showSeconds: false,
     showMeridian: true,
-    template: false,
     showWidgetOnAddonClick: true
   };
 
