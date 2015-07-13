@@ -6,12 +6,10 @@
     this.$element = $(element);
     this.defaultTime = options.defaultTime;
     this.disableFocus = options.disableFocus;
-    this.disableMousewheel = options.disableMousewheel;
     this.minuteStep = options.minuteStep;
     this.secondStep = options.secondStep;
     this.showMeridian = options.showMeridian;
     this.showSeconds = options.showSeconds;
-    this.showWidgetOnAddonClick = options.showWidgetOnAddonClick;
 
     this.$element.on({
       'focus.timepicker': $.proxy(this.highlightUnit, this),
@@ -358,63 +356,6 @@
       }
     },
 
-    mousewheel: function (e) {
-      if (this.disableMousewheel) {
-        return false;
-      }
-
-      e.preventDefault();
-      e.stopPropagation();
-
-      var delta = e.originalEvent.wheelDelta || -e.originalEvent.detail,
-        scrollTo = null;
-
-      if (e.type === 'mousewheel') {
-        scrollTo = (e.originalEvent.wheelDelta * -1);
-      }
-      else if (e.type === 'DOMMouseScroll') {
-        scrollTo = 40 * e.originalEvent.detail;
-      }
-
-      if (scrollTo) {
-        e.preventDefault();
-        $(this).scrollTop(scrollTo + $(this).scrollTop());
-      }
-
-      switch (this.highlightedUnit) {
-      case 'minute':
-        if (delta > 0) {
-          this.incrementMinute();
-        } else {
-          this.decrementMinute();
-        }
-        this.highlightMinute();
-        break;
-      case 'second':
-        if (delta > 0) {
-          this.incrementSecond();
-        } else {
-          this.decrementSecond();
-        }
-        this.highlightSecond();
-        break;
-      case 'meridian':
-        this.toggleMeridian();
-        this.highlightMeridian();
-        break;
-      default:
-        if (delta > 0) {
-          this.incrementHour();
-        } else {
-          this.decrementHour();
-        }
-        this.highlightHour();
-        break;
-      }
-
-      return false;
-    },
-
     remove: function () {
       $('document').off('.timepicker');
       delete this.$element.data().timepicker;
@@ -643,12 +584,10 @@
   $.fn.timepicker.defaults = {
     defaultTime: 'current',
     disableFocus: false,
-    disableMousewheel: false,
     minuteStep: 15,
     secondStep: 15,
     showSeconds: false,
-    showMeridian: true,
-    showWidgetOnAddonClick: true
+    showMeridian: true
   };
 
   $.fn.timepicker.Constructor = Timepicker;

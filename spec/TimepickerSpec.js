@@ -68,7 +68,6 @@ describe('Timepicker feature', function () {
     expect(tp1.disableFocus).toBe(false);
     expect(tp1.showSeconds).toBe(false);
     expect(tp1.showMeridian).toBe(true);
-    expect(tp1.showWidgetOnAddonClick).toBe(true);
   });
 
   it('should allow user to configure defaults', function () {
