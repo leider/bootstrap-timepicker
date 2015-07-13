@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <meta charset='utf-8'>
+  <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <meta name="description" content="Simple-timepicker : A simple timepicker component for Twitter Bootstrap">
 
@@ -48,26 +48,28 @@
     </h2>
 
     <h3> Standard </h3>
+
     <p>Just create an input element:</p>
     <pre>
 &lt;input id="timepicker1">
 &lt;script type="text/javascript">
-  $('#timepicker1').timepicker();
+  $("#timepicker1").timepicker();
 &lt;/script></pre>
     <input id="timepicker1">
     <script type="text/javascript">
-      $('#timepicker1').timepicker();
+      $("#timepicker1").timepicker();
     </script>
 
     <p>This creates a timepicker with standard setup </p>
     <hr>
 
     <h3> 24 hrs </h3>
+
     <p>Just create an input element:</p>
     <pre>
 &lt;input id="timepicker2">
 &lt;script type="text/javascript">
-  $('#timepicker2').timepicker({
+  $("#timepicker2").timepicker({
       template: false,
       minuteStep: 30,
       showSeconds: false,
@@ -76,7 +78,7 @@
 &lt;/script></pre>
     <input id="timepicker2">
     <script type="text/javascript">
-      $('#timepicker2').timepicker({
+      $("#timepicker2").timepicker({
         template: false,
         minuteStep: 30,
         showSeconds: false,
@@ -85,6 +87,49 @@
     </script>
 
     <p>This creates a timepicker with 24 hours and 30 minutes increment.</p>
+    <hr>
+
+    <h3> With seconds and different stepsize </h3>
+
+    <p>Just create an input element:</p>
+    <pre>
+&lt;input id="timepicker3" data-minute-step="1" data-show-seconds="true">
+&lt;script type="text/javascript">
+  $("#timepicker3").timepicker();
+&lt;/script></pre>
+    <input id="timepicker3" data-minute-step="1" data-show-seconds="true">
+    <script type="text/javascript">
+      $("#timepicker3").timepicker();
+    </script>
+    <p>This creates a timepicker with seconds and 1 minute steps.</p>
+    <hr>
+
+    <h3> Setting the time programatically </h3>
+    <pre>
+&lt;button onclick="setTime()">Set time to 9:33 AM&lt;/button>
+&lt;script type="text/javascript">
+      function setTime() {
+        $("#timepicker3").timepicker("setTime", "9:33 AM");
+      }
+&lt;/script></pre>
+    <button onclick="setTime()">Set time to 9:33 AM</button>
+    <script type="text/javascript">
+      function setTime() {
+        $("#timepicker3").timepicker("setTime", "9:33 AM");
+      }
+    </script>
+    <hr>
+    
+    <h3> Listening to the change event </h3>
+    <pre>
+&lt;script type="text/javascript">
+ $('#timepicker').timepicker().on('changeTime.timepicker', function(e) {
+    console.log('The time is ' + e.time.value);
+    console.log('The hour is ' + e.time.hour);
+    console.log('The minute is ' + e.time.minute);
+    console.log('The meridian is ' + e.time.meridian);
+  });
+&lt;/script></pre>
     <hr>
   </section>
 </div>
